@@ -1,0 +1,26 @@
+diff --git a/node_modules/react-native-screens/android/src/paper/java/com/facebook/react/viewmanagers/RNSScreenStackHeaderConfigManagerDelegate.java b/node_modules/react-native-screens/android/src/paper/java/com/facebook/react/viewmanagers/RNSScreenStackHeaderConfigManagerDelegate.java
+index 7eb4a73..996f50c 100644
+--- a/node_modules/react-native-screens/android/src/paper/java/com/facebook/react/viewmanagers/RNSScreenStackHeaderConfigManagerDelegate.java
++++ b/node_modules/react-native-screens/android/src/paper/java/com/facebook/react/viewmanagers/RNSScreenStackHeaderConfigManagerDelegate.java
+@@ -36,7 +36,7 @@ public class RNSScreenStackHeaderConfigManagerDelegate<T extends View, U extends
+         mViewManager.setBackTitleFontSize(view, value == null ? 0 : ((Double) value).intValue());
+         break;
+       case "backTitleVisible":
+-        mViewManager.setBackTitleVisible(view, value == null ? true : (boolean) value);
++        mViewManager.setBackTitleVisible(view, value == null ? true : (value instanceof String ? Boolean.parseBoolean((String) value) : (boolean) value));
+         break;
+       case "color":
+         mViewManager.setColor(view, ColorPropConverter.getColor(value, view.getContext()));
+diff --git a/node_modules/react-native-screens/src/fabric/ScreenStackHeaderConfigNativeComponent.ts b/node_modules/react-native-screens/src/fabric/ScreenStackHeaderConfigNativeComponent.ts
+index 453c0bb..7b48df1 100644
+--- a/node_modules/react-native-screens/src/fabric/ScreenStackHeaderConfigNativeComponent.ts
++++ b/node_modules/react-native-screens/src/fabric/ScreenStackHeaderConfigNativeComponent.ts
+@@ -48,7 +48,7 @@ export interface NativeProps extends ViewProps {
+   backTitle?: string;
+   backTitleFontFamily?: string;
+   backTitleFontSize?: Int32;
+-  backTitleVisible?: WithDefault<boolean, 'true'>;
++  backTitleVisible?: WithDefault<boolean, true>;
+   color?: ColorValue;
+   direction?: WithDefault<DirectionType, 'ltr'>;
+   hidden?: boolean;
