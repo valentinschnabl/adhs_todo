@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Read(//Users/schnabl/Desktop/**)",
+      "Bash(npx create-expo-app@latest adhs-app-tmp --template blank-typescript)",
+      "Bash(cp:*)",
+      "WebFetch(domain:docs.expo.dev)",
+      "WebFetch(domain:expo.dev)",
+      "WebFetch(domain:github.com)",
+      "Bash(npm view:*)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//Users/schnabl/Desktop/ADHS App/src/components/**)",
+      "Bash(done)"
+    ]
+  }
+}
